@@ -1,6 +1,5 @@
 <template>
     <div class="header">
-        <img src="../assets/img/logo.png" alt="">
         <span>XXXXXX可视化</span>
     </div>
 </template>
@@ -14,10 +13,10 @@ export default {
 <style lang="less" scoped>
 .header {
     width: 1920px;
-    height: 140px;
+    height: 68px;
     display: flex;
     justify-content: center;
-    background: url("../assets/img/header.png") center no-repeat;
+    background: url("../assets/img/bg-title.png") center no-repeat;
     background-size: 100% 100%;
     font-size: 36px;
     color: #FFFFFF;

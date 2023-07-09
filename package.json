@@ -1,8 +1,8 @@
 {
-  "name": "new-web",
+  "name": "doy-large",
   "version": "0.1.0",
-  "description": "vue+iview前端框架",
-  "author": "小黎<https://xiaoli.vip.com>",
+  "description": "东营大屏可视化",
+  "author": "小黎<https://xiaoli.vip>",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

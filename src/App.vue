@@ -12,7 +12,7 @@ export default {
         return {}
     },
     mounted () {
-        document.title = '大屏数据可视化'
+        document.title = '东营大屏可视化'
     }
 }
 </script>

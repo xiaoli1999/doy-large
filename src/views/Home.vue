@@ -3,15 +3,10 @@
         <Header />
         <div class="main">
             <div class="main-top">
-                <Business />
-                <Census />
-                <Add />
-                <Target />
+
             </div>
             <div class="main-bottom">
-                <Life />
-                <Product />
-                <Number />
+
             </div>
         </div>
     </div>
@@ -20,21 +15,12 @@
 <script>
 import Header from '../components/Header'
 
-import Business from '@/components/top/Business'
-import Census from '@/components/top/Census'
-import Add from '@/components/top/Add'
-import Target from '@/components/top/Target'
-
-import Life from '@/components/bottom/Life'
-import Product from '@/components/bottom/Product'
-import Number from '@/components/bottom/Number'
-
 import { screenAuto } from '@/libs/screen.tools'
 import { throttle } from '@/libs/common'
 
 export default {
     name: 'Home',
-    components: { Header, Business, Census, Add, Target, Life, Product, Number },
+    components: { Header },
     data () {
         return {
 
@@ -44,8 +30,8 @@ export default {
 
     },
     async mounted () {
-        screenAuto()
-        window.onresize = () => (throttle(screenAuto(), 360))
+        // screenAuto()
+        // window.onresize = () => (throttle(screenAuto(), 360))
     },
     destroyed () {
         window.onresize = null
@@ -60,7 +46,7 @@ export default {
 .home {
     position: relative;
     width: 1920px;
-    height: 1080px;
+    height: 756px;
     background: url("../assets/img/bg.png") center no-repeat;
     background-size: 100%;
     transform-origin: 50% 0;
