@@ -44,8 +44,8 @@ export default {
 <style lang="less" scoped>
 .header {
     position: relative;
-    width: 1920px;
-    height: 68px;
+    width: 100%;
+    height: 134px;
     display: flex;
     justify-content: center;
     color: #FFFFFF;
@@ -53,27 +53,27 @@ export default {
     background-size: 100% 100%;
 
     .title {
-        height: 58px;
-        font-size: 38px;
+        height: 108px;
+        font-size: 76px;
         font-family: YouSheBiaoTiHei, serif;
-        line-height: 58px;
-        letter-spacing: 3px;
+        line-height: 108px;
+        letter-spacing: 5px;
         text-align: center;
-        text-shadow: 0 2px 1px rgba(0, 0, 0, 0.5);
+        text-shadow: 0 4px 2px rgba(0,0,0,0.5);
     }
 
     .time {
         position: absolute;
-        height: 24px;
+        height: 40px;
         display: flex;
-        left: 144px;
-        bottom: 4px;
+        left: 288px;
+        bottom: 16px;
         align-items: center;
-        font-size: 16px;
+        font-size: 32px;
         font-weight: bold;
 
         > span {
-            margin-right: 14px;
+            margin-right: 16px;
         }
     }
 }

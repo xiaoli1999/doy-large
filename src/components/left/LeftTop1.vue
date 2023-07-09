@@ -261,7 +261,6 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
-    width: 208px;
 
     .content {
 

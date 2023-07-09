@@ -89,8 +89,8 @@ export default {
 <style lang="less" scoped>
 .home {
     position: relative;
-    width: 1920px;
-    height: 756px;
+    width: 3840px;
+    height: 1512px;
     background: url("../assets/img/bg.png") center no-repeat;
     background-size: 100%;
     transform-origin: 50% 0;
@@ -99,9 +99,9 @@ export default {
 
     .main {
         width: 100%;
-        height: 756px;
+        height: 1378px;
         box-sizing: border-box;
-        padding: 24px 10px;
+        padding: 48px 20px;
         display: flex;
         justify-content: space-between;
 
@@ -114,21 +114,21 @@ export default {
                 align-items: center;
 
                 &:not(:last-child) {
-                    margin-bottom: 12px;
+                    margin-bottom: 24px;
                 }
             }
         }
 
         .left {
-            width: 630px;
+            width: 1260px;
         }
 
         .center {
-            width: 666px;
+            width: 1332px;
         }
 
         .right {
-            width: 580px;
+            width: 1160px;
         }
     }
 }

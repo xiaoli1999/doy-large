@@ -15,7 +15,7 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
-    width: 374px;
+    width: 750px;
     background: url("../../assets/img/bg-m-3.png");
     background-size: 100% 100%;
 

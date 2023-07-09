@@ -19,32 +19,33 @@ export default {
 
 <style lang="less" scoped>
 .main-content {
-    width: 208px;
+    width: 406px;
 
     .content {
         > img {
-            width: 180px;
-            margin: 0 auto 14px;
+            width: 352px;
+            margin: 30px auto;
         }
 
         .num {
-            width: 162px;
-            height: 20px;
+            width: 324px;
+            height: 36px;
             margin: 0 auto;
             background: url("../../assets/img/bg-stripe.png");
             background: 100% 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 12px;
+            font-size: 20px;
             font-weight: 600;
             color: #F7FCFF;
 
             > span {
-                font-size: 16px;
+                font-size: 26px;
                 font-family: YouSheBiaoTiHei;
                 color: #8DFF66;
-                padding-left: 8px;
+                padding-left: 16px;
+                padding-top: 4px;
             }
         }
     }
