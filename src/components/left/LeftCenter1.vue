@@ -1,7 +1,10 @@
 <template>
     <div class="main-content">
         <div class="top">人员分布</div>
-        <div id="chart-2" class="content"></div>
+        <div class="content">
+            <div id="chart-2"></div>
+            <img src="../../assets/img/bot-3.png" alt="">
+        </div>
     </div>
 </template>
 
@@ -12,16 +15,38 @@ export default {
     name: 'LeftCenter1',
     data () {
         return {
-            color: ['#EBC53F', '#3D97EE'],
             list: [
-                { value: 40, name: 'rose 1' },
-                { value: 38, name: 'rose 2' },
-                { value: 32, name: 'rose 3' },
-                { value: 30, name: 'rose 4' },
-                { value: 28, name: 'rose 5' },
-                { value: 26, name: 'rose 6' },
-                { value: 22, name: 'rose 7' },
-                { value: 18, name: 'rose 8' }
+                {
+                    name: '电务专业',
+                    value: 30,
+                    color: '#3B9EFE'
+                },
+                {
+                    name: '工务专业',
+                    value: 4,
+                    color: '#FFA269'
+                },
+                {
+                    name: '车务专业',
+                    value: 8,
+                    color: '#CAEFFF'
+                },
+                {
+                    name: '后勤专业',
+                    value: 12,
+                    color: '#FFE76D'
+                },
+                {
+                    name: '供电专业',
+                    value: 20,
+                    color: '#84D849'
+                },
+                {
+                    name: '机关',
+                    value: 26,
+                    color: '#EBD553'
+                }
+
             ]
         }
     },
@@ -35,17 +60,44 @@ export default {
             myChart.clear()
 
             const option = {
+                tooltip: {
+                    trigger: 'item'
+                },
                 series: [
                     {
                         name: 'Nightingale Chart',
                         type: 'pie',
-                        radius: [8, 48],
+                        clockwise: false,
+                        radius: [24, 124],
                         center: ['50%', '50%'],
+                        startAngle: 8,
                         roseType: 'area',
                         itemStyle: {
                             borderRadius: 1
                         },
-                        data: this.list
+                        color: this.list.map(i => i.color),
+                        data: this.list,
+                        label: {
+                            alignTo: 'edge',
+                            formatter: '{name|{b}}\n{time|{c}% }',
+                            minMargin: 5,
+                            edgeDistance: 50,
+                            lineHeight: 30,
+                            rich: {
+                                time: {
+                                    fontSize: 14,
+                                    color: '#f4f4f4'
+                                }
+                            },
+                            fontSize: 14,
+                            color: '#f4f4f4',
+                            textBorderWidth: 0
+                        },
+                        labelLine: {
+                            length: 24,
+                            length2: 6,
+                            maxSurfaceAngle: 80
+                        }
                     }
                 ]
             }
@@ -63,7 +115,16 @@ export default {
     background-size: 100% 100%;
 
     .content {
+        > div {
+            width: 560px;
+            height: 260px;
+            margin: 10px auto;
+        }
 
+        > img {
+            width: 564px;
+            margin: 0 auto;
+        }
     }
 }
 </style>
