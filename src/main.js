@@ -16,7 +16,7 @@ Vue.config.productionTip = false
 Vue.prototype.$APP_VERSION = process.env.VUE_APP_VERSION
 Vue.prototype.$VUE_APP_DTU_API_URL = process.env.VUE_APP_DTU_API_URL
 Vue.prototype.$IS_PROD = process.env.NODE_ENV === 'production'
-Vue.prototype.$Dayjs = dayjs
+Vue.prototype.$dayjs = dayjs
 
 new Vue({
     router,
