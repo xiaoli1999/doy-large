@@ -99,6 +99,7 @@ export default {
                 color: #fff;
                 background: url("../../assets/img/bot-line-s.png");
                 background-size: 100% 100%;
+                margin-bottom: 8px;
             }
 
             &::-webkit-scrollbar {

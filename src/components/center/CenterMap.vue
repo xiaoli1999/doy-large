@@ -31,47 +31,103 @@ export default {
 			myChart.clear()
 			// 绘制地图
 			echarts.registerMap('doy', this.mapData);
+
 			myChart.setOption({
 				title: {
 					text: '东营省地图',
 					left: 'center'
 				},
-				series: [
-					{
-						type: 'map',
-						map: 'doy',
-						roam: true,
-						zoom: 1.5,
-						label: {
-							show: true
-						},
-						emphasis: {
-							label: {
-								show: true
-							}
-						},
-						// 自定义区域样式
-						itemStyle: {
-							// 区域默认样式
-							// normal: {
-							// 	borderColor: '#000',
-							// 	areaColor: '#ccc'
-							// },
-							// 区域高亮样式
-							// emphasis: {
-							// 	areaColor: '#f00'
-							// }
-						},
-						// 区域点击事件
-						// 例如: 根据区域ID进行相应操作
-						// 可以在点击事件中添加路径绘制和标记的逻辑
-						// click: function (params) {
-						// 	var regionId = params.data.id;
-						// 	// 根据区域ID绘制路径和标记
-						// 	drawPathAndMarker(regionId);
-						// }
-					}
-				]
+                geo: [{
+                    map: 'doy',
+                    roam: true,
+                    zoom: 2.4,
+                    // center: [],
+                    label: {
+                        show: true,
+                        normal: {
+                            show: true,
+                            textStyle: { fontSize: 30, color: '#f4f4f480' }
+                        }
+                    },
+                    scaleLimit: {
+                        max: 10,
+                        min: 0.6
+                    },
+                    itemStyle: {
+                        normal: {
+                            color: '#0f264180', // 地图背景色
+                            borderColor: '#085D8E', // 省市边界线00fcff 516a89
+                            borderWidth: 1.5
+                        },
+                        /** 悬浮背景 */
+                        emphasis: {
+                            color: '#0f264140',
+                        }
+                    },
+                    click: function (e) {
+                        console.log(e)
+                    },
+                    data: [{
+
+                        fromName: "梅李镇",
+                        toName: "梅李镇",
+                        coords: [
+                            [120.87524048945, 31.650835071419],
+                            [120.87524, 31.65283],
+                            [120.87624058945, 31.669835171419],
+                        ]
+                    }],
+                }],
+                series: [
+                    {
+                        type: 'lines',
+                        coordinateSystem: 'geo',
+                        data: [],
+                        polyline: true,
+                        lineStyle: {
+                            color: 'purple',
+                            opacity: 0.6,
+                            width: 1
+                        }
+                    }
+                ]
+
+				// series: [
+				// 	{
+				// 		type: 'map',
+				// 		map: 'doy',
+				// 		roam: true,
+				// 		zoom: 1.5,
+				// 		label: {
+				// 			show: true
+				// 		},
+				// 		emphasis: {
+				// 			label: {
+				// 				show: true
+				// 			}
+				// 		},
+				// 		// 自定义区域样式
+				// 		itemStyle: {
+				// 			// 区域默认样式
+				// 			// normal: {
+				// 			// 	borderColor: '#000',
+				// 			// 	areaColor: '#ccc'
+				// 			// },
+				// 			// 区域高亮样式
+				// 			// emphasis: {
+				// 			// 	areaColor: '#f00'
+				// 			// }
+				// 		},
+				// 		// 区域点击事件
+				// 		// 例如: 根据区域ID进行相应操作
+				// 		// 可以在点击事件中添加路径绘制和标记的逻辑
+				// 		// click: function (params) {
+				// 		// 	var regionId = params.data.id;
+				// 		// 	// 根据区域ID绘制路径和标记
+				// 		// 	drawPathAndMarker(regionId);
+				// 		// }
+				// 	}
+				// ]
 			});
 
 			// // 绘制路径和标记的函数

@@ -12,7 +12,7 @@ export default {
 	name: 'LeftTop1',
 	data () {
 		return {
-			color: ['#EBC53F', '#3D97EE'],
+			color: ['#EBC53F', '#62ADFF'],
 			list: [
 				{ name: 'xx站', value: 160 },
 				{ name: 'xx站', value: 180 },
@@ -32,8 +32,8 @@ export default {
 			myChart.clear()
 
 			const data = [140, 160, 180, 150, 168]
-			const colorArr = ['#59B1FF', '#59B1FF', '#59B1FF', '#59B1FF', '#59B1FF']
-			const colorArr1 = ['#3688FF', '#3688FF', '#3688FF', '#3688FF', '#3688FF']
+			const colorArr = ['#62ADFF', '#3688FF', '#62ADFF', '#62ADFF', '#000']
+			const colorArr1 = ['#FFE77F', '#B49522', '#FFE77F', '#3688FF', '#000']
 			const color = {
 				type: 'linear',
 				x: 0,
@@ -130,7 +130,7 @@ export default {
 			// 	}
 			// })
 
-			const barWidth = 20
+			const barWidth = 30
 			const option = {
 				tooltip: {
 					trigger: 'axis',
@@ -162,7 +162,7 @@ export default {
 							icon: 'rect',
 							// 设置文本为红色
 							itemStyle: {
-								color: '#3887D5'
+								color: '#62ADFF'
 							}
 						},
 						{
@@ -170,13 +170,21 @@ export default {
 							icon: 'rect',
 							// 设置文本为红色
 							itemStyle: {
-								color: '#cfd181'
+								color: '#FFEC66'
 							}
-						}
+						},
+                        {
+                            name: '单位:站场',
+                            icon: 'none',
+                            // 设置文本为红色
+                            itemStyle: {
+                                color: '#FFEC66'
+                            }
+                        }
 					],
 					textStyle: {
 						color: '#fff',
-						fontSize: '16'
+						fontSize: '13'
 					}
 				},
 				xAxis: {
@@ -187,24 +195,24 @@ export default {
 						onZero: false,
 						lineStyle: {
 							width: 1,
-							color: '#214776'
+							color: '#f4f4f4'
 						}
 					},
 					spliteLine: {
 						show: false
 					},
-					offset: 5,
+					offset: 8,
 					type: 'category',
 					axisLabel: {
 						textStyle: {
-							color: '#C5DFFB',
+							color: '#f4f4f4',
 							fontWeight: 500,
 							fontSize: '14'
 						}
 					},
 					axisTick: {
 						show: true
-					}
+					},
 				},
 				yAxis: {
 					type: 'value',
@@ -232,7 +240,7 @@ export default {
 						z: 1,
 						name: '室内接发车',
 						type: 'bar',
-						barWidth: barWidth,
+						barWidth: 20,
 						barGap: '50%',
 						data: dataColor,
 						showBackground: true,
@@ -259,8 +267,8 @@ export default {
 						type: 'pictorialBar',
 						data: dataColor,
 						symbol: 'diamond',
-						symbolOffset: ['0%', '50%'],
-						symbolSize: [barWidth, 8],
+						symbolOffset: ['0%', '54%'],
+						symbolSize: [20, 8],
 						itemStyle: {
 							normal: {
 								color: color
@@ -273,13 +281,13 @@ export default {
 					{
 						// 顶
 						z: 3,
-						name: '室内接发车',
+						name: '单位:站场',
 						type: 'pictorialBar',
 						symbolPosition: 'end',
 						data: data2,
 						symbol: 'diamond',
 						symbolOffset: ['0%', '-50%'],
-						symbolSize: [barWidth, 8],
+						symbolSize: [20, 8],
 						itemStyle: {
 							normal: {
 								borderWidth: 2,
