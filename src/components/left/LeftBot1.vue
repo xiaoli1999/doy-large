@@ -13,7 +13,7 @@
                     <div class="row1">{{ item.name }}</div>
                     <div class="row2">{{ item.area }}</div>
                     <div class="row3">{{ item.total1 }}</div>
-                    <div class="row4">{{ item.total2 }}</div>
+                    <div class="row4"><span>{{ item.total2 }}</span></div>
                 </div>
             </div>
         </div>
@@ -104,6 +104,17 @@ export default {
                 background: url("../../assets/img/row-bg.png");
                 background-size: 100% 100%;
                 margin-bottom: 8px;
+
+                > div > span {
+                    display: flex;
+                    width: 46px;
+                    height: 25px;
+                    margin: 0 auto;
+                    align-items: center;
+                    justify-content: center;
+                    background: rgba(186,62,0,0.4);
+                    border: 1px solid #FF723C;
+                }
             }
 
             &::-webkit-scrollbar {

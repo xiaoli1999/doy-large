@@ -20,7 +20,8 @@ export default {
     background-size: 100% 100%;
 
     .content {
-
+        width: 574px;
+        margin-inline: auto;
     }
 }
 </style>
