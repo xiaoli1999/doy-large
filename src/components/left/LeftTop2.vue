@@ -32,7 +32,7 @@ export default {
             height: 36px;
             margin: 0 auto;
             background: url("../../assets/img/bg-stripe.png");
-            background: 100% 100%;
+            background-size: 100% 100%;
             display: flex;
             align-items: center;
             justify-content: center;

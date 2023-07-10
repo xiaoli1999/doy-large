@@ -98,7 +98,7 @@ export default {
                 font-size: 16px;
                 color: #fff;
                 background: url("../../assets/img/bot-line-s.png");
-                background: 100% 100%;
+                background-size: 100% 100%;
             }
 
             &::-webkit-scrollbar {
