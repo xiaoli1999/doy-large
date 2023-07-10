@@ -3,6 +3,11 @@
         <div class="top">作业进度监管</div>
         <div class="content">
             <div id="chart-4"></div>
+            <img src="../../assets/img/bot2.png" alt="">
+            <div class="chart-text">
+                <div class="num"><animate-number from="0" :to="9" duration="1200" /></div>
+                <div class="desc">总数</div>
+            </div>
         </div>
     </div>
 </template>
@@ -80,7 +85,7 @@ function getPie3D(pieData, internalDiameterRatio) {
 		legend: {
 			show: true,
 			right: '8%',
-			top: 'center',
+			top: '22%',
 			orient: 'vertical',
 			borderRadius: 0,
 			data: legendData,
@@ -105,11 +110,11 @@ function getPie3D(pieData, internalDiameterRatio) {
 		},
 		grid3D: {
 			show: false,
-			boxHeight: 30, // 厚度
+			boxHeight: 18, // 厚度
 			viewControl: {
 				//3d效果可以放大、旋转等，请自己去查看官方配置
-				alpha: 34, // 角度
-				beta: 260, // 饼块开始位置角度
+				alpha: 32, // 角度
+				beta: 280, // 饼块开始位置角度
 				rotateSensitivity: 0,
 				zoomSensitivity: 0,
 				panSensitivity: 0,
@@ -122,6 +127,8 @@ function getPie3D(pieData, internalDiameterRatio) {
 					alpha: 78, // 主光源绕 x 轴，即上下旋转的角度
 				},
 			},
+            left: '-14%',
+            top: '-14%'
 		},
 		series: series
 	};
@@ -225,28 +232,28 @@ export default {
                     name: "线路维护",
                     value: 4,
                     itemStyle: {
-                        color: "#76d8f7aa"
+                        color: "#76d8f7dd"
                     }
 			    },
 				{
 					name: "设备维修",
 					value: 3,
 					itemStyle: {
-						color: "#5585ffaa"
+						color: "#5585fffe"
 					}
 				},
 				{
 					name: "线路巡检",
 					value: 1,
 					itemStyle: {
-						color: "#fff112aa"
+						color: "#fff112cc"
 					}
 				},
 				{
 					name: "设别检查",
 					value: 2,
 					itemStyle: {
-						color: "#29eda1aa"
+						color: "#29eda1dd"
 					}
 				}
             ]
@@ -277,10 +284,46 @@ export default {
     background-size: 100% 100%;
 
     .content {
-        > div {
+        position: relative;
+
+        #chart-4 {
+            position: relative;
             width: 580px;
             height: 320px;
             margin-inline: auto;
+            z-index: 5;
+        }
+
+        > img {
+            position: absolute;
+            width: 380px;
+            top: 80px;
+            left: 44px;
+            z-index: 0;
+        }
+
+        .chart-text {
+            position: absolute;
+            left: 178px;
+            top: 86px;
+            z-index: 10;
+            color: #FFFFFF;
+            width: 102px;
+            height: 80px;
+            text-align: center;
+
+            .num {
+                font-size: 30px;
+                font-family: YouSheBiaoTiHei,serif;
+                line-height: 1;
+                padding-top: 10px;
+            }
+
+            .desc {
+                font-size: 18px;
+                font-weight: 500;
+                letter-spacing: 1px;
+            }
         }
     }
 }
