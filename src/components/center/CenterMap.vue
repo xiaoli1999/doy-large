@@ -13,7 +13,70 @@ export default {
     name: 'CenterMap',
     data () {
 		return {
-            mapData: null
+            mapData: null,
+			lineList: [
+				[
+					[
+						118.670198896523,
+						37.92808904437172
+					],
+					[
+						118.55546887845014,
+						37.66621008643848
+					],
+				],
+				[
+					[
+						118.55546887845014,
+						37.66621008643848
+					],
+					[
+						118.28054763514643,
+						37.510516871339306
+					],
+				],
+				[
+					[
+						118.28054763514643,
+						37.510516871339306
+					],
+					[
+						118.15141836536702,
+						37.32336091121911
+					],
+				],
+				[
+					[
+						118.15141836536702,
+						37.32336091121911
+					],
+					[
+						117.9876370812857,
+						37.18047311826457
+					],
+				],
+
+				[
+					[
+						117.9876370812857,
+						37.18047311826457
+					],
+					[
+						117.69065409410354,
+						37.0569850745466
+					],
+				],
+				[
+					[
+						117.69065409410354,
+						37.0569850745466
+					],
+					[
+						117.31574382527424,
+						36.95413877347636
+					]
+				]
+			]
         }
     },
 	async mounted() {
@@ -78,57 +141,103 @@ export default {
                         ]
                     }],
                 }],
-                series: [
-                    {
-                        type: 'lines',
-                        coordinateSystem: 'geo',
-                        data: [],
-                        polyline: true,
-                        lineStyle: {
-                            color: 'purple',
-                            opacity: 0.6,
-                            width: 1
-                        }
-                    }
+				series: [
+					{
+						type: 'lines',
+						coordinateSystem: 'geo',
+						data: this.lineList.map(i => ({ coords: i })),
+						smooth: true, // 设置为曲线
+						polyline: true,
+						lineStyle: {
+							color: 'purple',
+							opacity: 1,
+							width: 10,
+							type: 'solid', // 线的类型，可选值为 'solid', 'dashed', 'dotted'
+							curveness: 0.2, // 曲线的曲率，取值范围为 0 到 1
+							// shadowColor: 'rgba(0, 0, 0, 0.5)', // 阴影颜色
+							// shadowBlur: 10, // 阴影模糊度
+							// shadowOffsetX: 3, // 阴影 X 轴偏移量
+							// shadowOffsetY: 3, // 阴影 Y 轴偏移量
+							emphasis: {
+								color: 'red', // 鼠标悬停时的颜色
+								width: 2 // 鼠标悬停时的线宽
+							}
+						},
+					},
+					{
+						type: 'lines',
+						coordinateSystem: 'geo',
+						data: this.lineList.map(i => ({ coords: i })),
+						smooth: true, // 设置为曲线
+						polyline: true,
+						lineStyle: {
+							color: '#fff',
+							opacity: 1,
+							width: 4,
+							type: 'dotted', // 线的类型，可选值为 'solid', 'dashed', 'dotted'
+							curveness: 1, // 曲线的曲率，取值范围为 0 到 1
+							// shadowColor: '#fff', // 阴影颜色
+							// shadowBlur: 10, // 阴影模糊度
+							// shadowOffsetX: 3, // 阴影 X 轴偏移量
+							// shadowOffsetY: 3, // 阴影 Y 轴偏移量
+							emphasis: {
+								color: 'red', // 鼠标悬停时的颜色
+								width: 2 // 鼠标悬停时的线宽
+							}
+						},
+					}
                 ]
-
-				// series: [
-				// 	{
-				// 		type: 'map',
-				// 		map: 'doy',
-				// 		roam: true,
-				// 		zoom: 1.5,
-				// 		label: {
-				// 			show: true
-				// 		},
-				// 		emphasis: {
-				// 			label: {
-				// 				show: true
-				// 			}
-				// 		},
-				// 		// 自定义区域样式
-				// 		itemStyle: {
-				// 			// 区域默认样式
-				// 			// normal: {
-				// 			// 	borderColor: '#000',
-				// 			// 	areaColor: '#ccc'
-				// 			// },
-				// 			// 区域高亮样式
-				// 			// emphasis: {
-				// 			// 	areaColor: '#f00'
-				// 			// }
-				// 		},
-				// 		// 区域点击事件
-				// 		// 例如: 根据区域ID进行相应操作
-				// 		// 可以在点击事件中添加路径绘制和标记的逻辑
-				// 		// click: function (params) {
-				// 		// 	var regionId = params.data.id;
-				// 		// 	// 根据区域ID绘制路径和标记
-				// 		// 	drawPathAndMarker(regionId);
-				// 		// }
-				// 	}
-				// ]
 			});
+
+			myChart.on('click', function(params) {
+				// 判断点击的系列类型是否为地图
+
+				console.log(params)
+
+				if (params.seriesType === 'geo') {
+					// 获取点击的坐标点
+					var coord = params.coord;
+					// 在控制台输出坐标点信息
+					console.log('点击坐标点:', coord);
+				}
+			});
+
+			// series: [
+			// 	{
+			// 		type: 'map',
+			// 		map: 'doy',
+			// 		roam: true,
+			// 		zoom: 1.5,
+			// 		label: {
+			// 			show: true
+			// 		},
+			// 		emphasis: {
+			// 			label: {
+			// 				show: true
+			// 			}
+			// 		},
+			// 		// 自定义区域样式
+			// 		itemStyle: {
+			// 			// 区域默认样式
+			// 			// normal: {
+			// 			// 	borderColor: '#000',
+			// 			// 	areaColor: '#ccc'
+			// 			// },
+			// 			// 区域高亮样式
+			// 			// emphasis: {
+			// 			// 	areaColor: '#f00'
+			// 			// }
+			// 		},
+			// 		// 区域点击事件
+			// 		// 例如: 根据区域ID进行相应操作
+			// 		// 可以在点击事件中添加路径绘制和标记的逻辑
+			// 		// click: function (params) {
+			// 		// 	var regionId = params.data.id;
+			// 		// 	// 根据区域ID绘制路径和标记
+			// 		// 	drawPathAndMarker(regionId);
+			// 		// }
+			// 	}
+			// ]
 
 			// // 绘制路径和标记的函数
 			// function drawPathAndMarker(regionId) {
