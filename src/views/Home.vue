@@ -74,8 +74,8 @@ export default {
 
     },
     async mounted () {
-        // screenAuto()
-        // window.onresize = () => (throttle(screenAuto(), 360))
+        screenAuto()
+        window.onresize = () => (throttle(screenAuto(), 360))
     },
     destroyed () {
         window.onresize = null

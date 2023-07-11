@@ -4,7 +4,7 @@
  * @param { Number } designH 设计稿高
  * @param { String } dom 缩放dom id
  */
-export const screenAuto = (designW = 1920, designH = 1080, dom = 'home') => {
+export const screenAuto = (designW = 3840, designH = 1512, dom = 'home') => {
 	if (isNaN(designW) || isNaN(designH)) return
 
 	const w = window.innerWidth
